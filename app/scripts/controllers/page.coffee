@@ -2,4 +2,5 @@
 
 angular.module('kookaburraApp')
   .controller 'PageCtrl', ($scope, content) ->
-  	$scope.content = content.getHtml 'sample'
+    $scope.contentContainer = {}
+    content.getHtml 'sample', $scope.contentContainer

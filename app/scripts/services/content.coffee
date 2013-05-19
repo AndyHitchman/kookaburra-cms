@@ -3,15 +3,9 @@
 angular.module('kookaburraApp')
   .factory 'content', ($http, $q, showdown) ->
   	{
-  	  getHtml: (contentId) ->
-
+  	  getHtml: (contentId, container) ->
 		    $http
           .get("/content/#{contentId}.md")
-          .then(
-              (q) ->
-                showdown.convert q.data
-            ,
-              (q) ->
-                "Error"              
-  	      )
+          .success (data) ->
+            container.content = showdown.convert data
     }
