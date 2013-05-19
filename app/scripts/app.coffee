@@ -4,7 +4,7 @@ angular.module('kookaburraApp', [])
   .config ($routeProvider) ->
     $routeProvider
       .when '/',
-        templateUrl: 'views/main.html'
-        controller: 'MainCtrl'
+        templateUrl: 'views/page.html'
+        controller: 'PageCtrl'
       .otherwise
         redirectTo: '/'
