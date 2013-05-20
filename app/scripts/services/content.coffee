@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('kookaburraApp')
-  .factory 'content', ($http, $q, showdown) ->
+  .factory 'content', ($http, showdown) ->
   	{
   	  getHtml: (contentId, container) ->
 		    $http

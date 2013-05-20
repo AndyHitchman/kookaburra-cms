@@ -7,13 +7,17 @@ describe 'Controller: PageCtrl', () ->
 
   PageCtrl = {}
   scope = {}
+  $httpBackend = {}
 
-  # Initialize the controller and a mock scope
-  beforeEach inject ($controller, $rootScope) ->
+   # Initialize the controller and a mock scope
+  beforeEach inject ($controller, $rootScope, $injector) ->
+    $httpBackend = $injector.get '$httpBackend'
+    $httpBackend.when('GET', '/content/sample.md').respond("Test")
+    $httpBackend.expectGET 'content/sample.md'
     scope = $rootScope.$new()
     PageCtrl = $controller 'PageCtrl', {
       $scope: scope
     }
 
-  it 'should attach a list of awesomeThings to the scope', () ->
-    expect(scope.awesomeThings.length).toBe 3;
+  it 'should be defined', () ->
+    expect(PageCtrl).toBeDefined;
