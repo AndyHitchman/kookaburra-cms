@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('kookaburraApp', [])
+angular.module('kookaburraApp', ['ngSanitize'])
   .value('AWSCredentials', {
       AccessKeyId: 'ABCDEFG'
       SecretAccessKey: 'ZXCVBNM'
