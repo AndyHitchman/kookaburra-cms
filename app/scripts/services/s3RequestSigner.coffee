@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('kookaburraApp')
-  .factory 's3RequestSigner', ($location) ->
+  .factory 's3RequestSigner', ($location, AWSCredentials, crypto) ->
 
     canonicalizedResource = (request) ->
       "/#{$location.host()}#{request.url}"
@@ -31,5 +31,13 @@ angular.module('kookaburraApp')
         """
 
       sign: (request) ->
-        @stringToSign request
+        hmacSha1 = crypto.HMAC(
+          crypto.SHA1 
+          @stringToSign request 
+          AWSCredentials.SecretAccessKey
+          { asBytes: true })
+
+        signatureDigest = crypto.util.bytesToBase64 hmacSha1 
+
+        request.headers.Authorization = "AWS #{AWSCredentials.AccessKeyId}:#{signatureDigest}"
     }
