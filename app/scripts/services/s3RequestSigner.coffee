@@ -12,6 +12,7 @@ angular.module('kookaburraApp')
         .pairs()
         .map((header) -> [header[0].toLowerCase(), header[1]])
         .filter((header) -> _.string.startsWith header[0], 'x-amz-')
+        .sortBy((header) -> header[0])
         .reduce(
           (memo, header, index) -> "#{memo}#{if index > 0 then '\n' else ''}#{header[0]}:#{header[1]}"
           '')
