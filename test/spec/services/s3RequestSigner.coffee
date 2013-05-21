@@ -1,6 +1,6 @@
 'use strict'
 
-describe 'Service: s3RequestSigner', () ->
+describe 'Service: s3RequestSigner with virtual buckets', () ->
 
   # load the service's module
   beforeEach module 'kookaburraApp'
@@ -103,3 +103,44 @@ describe 'Service: s3RequestSigner', () ->
     actual = s3RequestSigner.sign request
 
     expect(actual).toEqual expected
+
+
+
+describe 'Service: s3RequestSigner with path style', () ->
+
+  # load the service's module
+  beforeEach module 'kookaburraApp'
+
+  # instantiate service
+  AWSCredentials = {}
+
+  # We are inject SUT for each test to allow browser url to be set before instantiation of service
+  beforeEach inject (_AWSCredentials_, $browser) ->
+    AWSCredentials = _AWSCredentials_
+    # We are using this host name specifically to test signature matches example
+    # given at https://s3.amazonaws.com/doc/s3-developer-guide/RESTAuthentication.html
+    $browser.url 'http://quotes.s3.amazonaws.com'
+
+
+  it 'should create a valid signing string', inject (s3RequestSigner) ->
+    request =
+      method: 'GET'
+      url: '/content/path/to/fetch.resource'
+      headers:
+        'x-amz-date': new Date('Mon, 20 May 2013 22:19:23 GMT').toUTCString()
+
+    actual = s3RequestSigner.stringToSign request
+    expected = 
+      """
+      GET
+
+
+
+      x-amz-date:Mon, 20 May 2013 22:19:23 GMT
+      /quotes/content/path/to/fetch.resource
+      """
+
+    expect(actual).toEqual expected
+
+
+

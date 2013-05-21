@@ -4,7 +4,11 @@ angular.module('kookaburraApp')
   .factory 's3RequestSigner', ($location, AWSCredentials, crypto) ->
 
     canonicalizedResource = (request) ->
-      "/#{$location.host()}#{request.url}"
+      bucket = $location.host()
+      if _.string.endsWith bucket, '.amazonaws.com'
+        bucket = _.string.strLeft bucket, '.'
+        
+      "/#{bucket}#{request.url}"
 
     # Does not handle repeated headers, as this is not allowed in CoffeeScript strict mode.
     canonicalizedAmzHeaders = (request) ->    
