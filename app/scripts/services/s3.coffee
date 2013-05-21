@@ -11,7 +11,7 @@ angular.module('kookaburraApp')
           headers:
             'x-amz-date': new Date().toUTCString()
 
-        signString = s3RequestSigner.sign(request)
+        request.headers.Authorization = s3RequestSigner.sign(request)
 
         $http(request)
           .success (data) ->
