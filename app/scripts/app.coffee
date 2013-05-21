@@ -11,7 +11,7 @@ angular.module('kookaburraApp', [])
   .config ($routeProvider) ->
     $routeProvider
       .when '/:page',
-        templateUrl: 'views/page.html'
+        templateUrl: 'templates/page.html'
         controller: 'PageCtrl'
       .otherwise
         redirectTo: '/home'
