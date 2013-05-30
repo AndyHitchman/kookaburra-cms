@@ -14,8 +14,8 @@ angular.module('kookaburraApp')
         request.headers.Authorization = s3RequestSigner.sign(request)
 
         $http(request)
-          .success (data) ->
+          .success (data, status, headers, config) ->
             cb null, data
-          .error (data, status) ->
+          .error (data, status, headers, config) ->
             cb {status: status}, data
     }

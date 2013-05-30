@@ -12,8 +12,8 @@ describe 'Controller: PageCtrl', () ->
    # Initialize the controller and a mock scope
   beforeEach inject ($controller, $rootScope, $injector) ->
     $httpBackend = $injector.get '$httpBackend'
-    $httpBackend.when('GET', '/content/sample.md').respond("Test")
-    $httpBackend.expectGET 'content/sample.md'
+    $httpBackend.when('GET', '/pages/index.json').respond("Test")
+    $httpBackend.expectGET 'pages/index.json'
     scope = $rootScope.$new()
     PageCtrl = $controller 'PageCtrl', {
       $scope: scope

@@ -1,0 +1,34 @@
+{
+	"template":	"home",
+	"meta": {
+		"title": "Kookaburra &mdash; the cheeky little CMS"
+	},
+	"parts": {
+		"left-nav" : {
+			"format":  "text/html",
+			"author-name": "Andy Hitchman",
+			"author-email": "andy@nowhere.com"
+		},
+		"main-news" : {
+			"format": "text/markdown",
+			"author-name": "Andy Hitchman",
+			"author-email": "andy@nowhere.com",
+			"content": "A First Level Header\n====================\n\nSecond Level Header\n---------------------"
+		},
+		"whats-new" : {
+			"format" : "controlled",
+			"state": "home.whatsnew"
+		},
+		"hot" : {
+			"format" : "linked",
+			"content": "documentation/index/somecontent"
+		},
+		"headline-image" : {
+			"path": "index/headline-image",
+			"author-name": "Andy Hitchman",
+			"author-email": "andy@nowhere.com",
+			"dimensions": [200, 140],
+			"format": "image/png"
+		}
+	}
+}

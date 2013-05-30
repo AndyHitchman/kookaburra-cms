@@ -1,6 +1,11 @@
 'use strict'
 
 angular.module('kookaburraApp')
-  .controller 'PageCtrl', ($scope, $routeParams, content) ->
-    $scope.contentContainer = {}
-    content.getHtml 'sample', $scope.contentContainer
+  .controller 'PageCtrl', ($scope, $route, $routeParams, s3) ->
+    $scope.page = {}
+
+    #TODO replce stub
+    resource = 'index.json'
+
+    s3.get "/pages/#{resource}", (err, data) ->
+      $scope.page = data
