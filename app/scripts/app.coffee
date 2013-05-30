@@ -11,7 +11,7 @@ angular.module('kookaburraApp', ['ngSanitize'])
   .config ($routeProvider) ->
     $routeProvider
       .when '/:page',
-        templateUrl: 'templates/page.html'
+        templateUrl: 'views/page.html'
         controller: 'PageCtrl'
       .otherwise
         redirectTo: '/home'
