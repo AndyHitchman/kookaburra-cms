@@ -1,6 +1,6 @@
 'use strict'
 
-describe 'Directive: kbPart', () ->
+describe 'Directive: part', () ->
   beforeEach module 'kookaburraApp'
 
   element = {}
@@ -9,6 +9,6 @@ describe 'Directive: kbPart', () ->
     $rootScope.test = 
       format: 'text/html'
       content: 'wibble'
-    element = angular.element '<div kb-part="test"></div>'
+    element = angular.element '<div part="test"></div>'
     element = $compile(element) $rootScope
     expect(element.text()).toBe 'wibble'

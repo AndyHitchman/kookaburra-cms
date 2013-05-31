@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('kookaburraApp')
-  .directive('kbPart', (showdown) ->
+  .directive('part', (showdown) ->
     template: '<div></div>'
     restrict: 'A'
     link: (scope, element, attrs) ->
-      element.text 'this is the kbPart directive'
-      part = scope.$eval(attrs.kbPart)
+      part = scope.$eval(attrs.part)
       
       switch part.format 
         when 'text/markdown' then element.html showdown.convert part.content
