@@ -5,8 +5,8 @@ angular.module('kookaburraApp')
     $scope.page = {}
 
     #TODO replce stub
-    resource = 'index.json'
+    resource = $routeParams.page
 
-    s3.get "/pages/#{resource}", (err, data) ->
+    s3.get "/pages/#{resource}.json", (err, data) ->
       $rootScope.title = data.meta.title
       $scope.page = data
