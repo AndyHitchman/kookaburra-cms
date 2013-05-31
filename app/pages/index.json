@@ -1,7 +1,7 @@
 {
 	"template":	"templates/home.html",
 	"meta": {
-		"title": "Kookaburra &mdash; the cheeky little CMS",
+		"title": "Kookaburra: the cheeky little CMS",
 		"author-name": "Andy Hitchman",
 		"author-email": "andy@nowhere.com"
 	},
