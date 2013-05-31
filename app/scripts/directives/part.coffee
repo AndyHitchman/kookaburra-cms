@@ -2,7 +2,6 @@
 
 angular.module('kookaburraApp')
   .directive('part', (showdown) ->
-    template: '<div></div>'
     restrict: 'A'
     link: (scope, element, attrs) ->
       part = scope.$eval(attrs.part)
