@@ -10,7 +10,18 @@ angular.module('kookaburraApp', ['ngSanitize'])
     
   .config ($routeProvider) ->
     $routeProvider
+      .when '/:page/edit',
+        mode: 'edit'
+        templateUrl: 'views/page.html'
+        controller: 'PageCtrl'
+
+      .when '/:page/:version',
+        mode: 'view'
+        templateUrl: 'views/page.html'
+        controller: 'PageCtrl'
+
       .when '/:page',
+        mode: 'view'
         templateUrl: 'views/page.html'
         controller: 'PageCtrl'
       .otherwise
