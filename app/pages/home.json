@@ -2,11 +2,11 @@
 	"template":	"templates/home.html",
 	"meta": {
 		"title": "Kookaburra: the cheeky little CMS",
-		"author-name": "Andy Hitchman",
-		"author-email": "andy@nowhere.com",
-		"creation-date": "2013-05-31T14:58:12+1000",
-		"modification-date": "2013-05-31T14:58:12+1000",
-		"previous-version": "index.json-128796a7b7c67e6f767d7ffae"
+		"authorName": "Andy Hitchman",
+		"authorEmail": "andy@nowhere.com",
+		"creationDate": "2013-05-31T14:58:12+1000",
+		"modificationDate": "2013-05-31T14:58:12+1000",
+		"previousVersion": "index.json-128796a7b7c67e6f767d7ffae"
 	},
 	"part": {
 		"leftNav" : {
